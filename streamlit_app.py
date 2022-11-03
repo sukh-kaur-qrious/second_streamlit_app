@@ -20,3 +20,12 @@ color_list = df[0].values.tolist()
 option = streamlit.selectbox('Pick a sweatsuit color or style:', list(color_list))
 # We'll build the image caption now, since we can
 product_caption = 'Our warm, comfortable, ' + option + ' sweatsuit!'
+df2 = my_cur.fetchone()
+streamlit.image(
+df2[0],
+width=400,
+caption= product_caption
+)
+streamlit.write('Price: ', df2[1])
+streamlit.write('Sizes Available: ',df2[2])
+streamlit.write(df2[3])
